@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+        <style>
+            .alert{
+                height: 40px;
+                padding: 5px !important;
+                text-align: center;
+            }
+
+            .card{
+                transform: translateY(50%);
+                width: 50%;
+                margin: auto;
+            }
+
+        </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-primary" role="alert">
+                    <strong id="result"></strong>
+                </div>
+                <div class="form-group">
+                    <label for="chieuCao">Chiều cao (x.x m) :</label>
+                    <input type="text" id="chieuCao" class="form-control" placeholder="Nhập chiều cao của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="canNang">Cân nặng (x kg) : </label>
+                    <input type="text" id="canNang" class="form-control" placeholder="Nhập cân nặng của bạn">
+                </div>
+                <button class="btn btn-primary" id="tinhBMI">Tính chỉ số BMI</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="code.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
