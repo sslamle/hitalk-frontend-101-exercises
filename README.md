@@ -9,3 +9,13 @@
 - Đặt code vào trong thư mục và commit lên github
 
 * Chú ý: Trước khi commit cần phải chạy `git pull` để đảm bảo không bị confict
+
+# Code của bạn là của bạn
+
+- Hãy tự code lấy những dòng code của mình
+- Hãy yêu nó như con của mình
+- Hãy để mình tự hào vì những đứa con đó
+- Xin đừng lấy con người khác làm con mình
+- Tội nghiệp
+- Lỡ lấy thì phải hiểu con họ và nhớ comment nguồn tham khảo ở đâu chứ đừng lôi về làm con riêng nhé.
+- Thiện style
