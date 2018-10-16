@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+
+</head>
+
+<body>
+    <h1>Tính chỉ số BMI </h1>
+    <div class="body1">
+           <div class="fomr">
+    <p>Chiều Cao</p>
+    <input type="text" id="chieucao" placeholder="Chiều Cao">
+    <p>Cân Nặng</p>
+    <input type="text" id="cannang" placeholder="Cân Nặng">
+</div>
+    <button id="button1" onclick="kiemtra()">Tính chỉ số BMI</button>
+
+
+    <script>
+
+        function kiemtra() {
+            var input = document.getElementById('chieucao').value;
+            var input1 = document.getElementById('cannang').value;
+            var button = document.getElementById('button1').value;
+            if (input == "" || input1 == "") {
+                alert("Vui lòng nhập đầy đủ dữ liệu");
+            } else if (isNaN(input) || isNaN(input1)) {
+                alert("Nhập vào không phải số");
+            } else if (input <= 0 || input1 <= 0) {
+                alert("Vui lòng nhập số lớn hơn 0");    
+            } else {
+                var BMI = (input1) / (input * input);
+                if (BMI < 18.5) {
+                    alert("Bạn bị thiếu cân");
+                } else if (BMI > 25) {
+                    alert("Bạn đã thừa cân");
+                } else {
+                    alert("Bạn là người bình thường");
+                };
+            }
+
+        
+        }
+
+
+
+    </script>
+</div>
+ 
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+
+.fomr{
+    background-color:rgb(255, 253, 253);
+    width: 100%;
+    height: 100%;
+}
+.fomr input{
+
+margin-left: 500px;
+border-radius: 20px;
+width: 400px;
+height: 40px;
+font-size: 24px;
+font-family: 'Times New Roman', Times, serif;
+border: 2px solid rgb(99, 49, 49);
+padding-left: 20px;
+
+}
+.fomr p{
+    margin-left: 640px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 32px;
+    color:red;
+}
+ button{
+    margin-left: 600px;
+    height: 50px;
+    width: 200px;
+    border-radius: 20px;
+    font-size: 20px;
+    color: rgb(245, 243, 243);
+    background-color: rgb(231, 20, 20);
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+h1{
+    margin-left: 580px;
+    font-size: 36px;
+
+}
