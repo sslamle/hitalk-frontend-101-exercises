@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chi So BMI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        
+        <form action="">
+            <h1>Tính toán BMI</h1>
+            <p>Nhập cân nặng:</p>
+            <input type="text" id="weight" placeholder="Cân nặng"> <br>
+
+            <p>Nhập chiều cao:</p>
+            <input type="text" id="height" placeholder="Chiều cao">
+            <br> <br>
+
+            <button id="button">Tính chỉ số BMI</button>
+        </form>
+    </div>
+
+
+    <script>
+        var weight = document.getElementById('weight');
+        var height = document.getElementById('height');
+        var button = document.getElementById('button');
+
+        button.addEventListener('click', function () {
+            var weightValue = Number(weight.value);
+            var heightValue = Number(height.value);
+
+            var BMI = (weightValue / (heightValue * heightValue));
+
+            if (BMI < 18.5) {
+                alert('BMI = ' + BMI + ' ==> Người thiếu cân ');
+            } else if (BMI <= 25) {
+                alert('BMI = ' + BMI + ' ==> Người cân đối');
+            } else {
+                alert('BMI = ' + BMI + ' ==> Người thừa cân, béo phì');
+            }
+        });
+    </script>
+</body>
+
+</html>
