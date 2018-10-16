@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function bmi(){
+			var chieucao = document.form1.textchieucao.value;
+			var cannang = document.form1.textcannang.value;
+			var bmi = cannang/(chieucao*chieucao);
+			var tinhtrang;
+			if(bmi<18.5){
+				tinhtrang = "Thiếu cân";
+			}else if(bmi>=18.5 && bmi <=25){
+				tinhtrang = "Người bình thường";
+			}else if(bmi>25){
+				tinhtrang = "Thừa cân";
+			}
+			else{
+				tinhtrang = "Bạn nhập không đúng định dạng!";
+			}
+			alert("BMI: "+bmi+"\nTình trạng: "+tinhtrang);
+		}
+	</script>
+</head>
+<body>
+	<form name="form1">	
+		<table style="margin: 0 auto;">
+			<caption>Tính chỉ số BMI</caption>
+			<tr>
+				<td>Nhập cân nặng(kg): </td>
+				<td><input type="text" name="textcannang"></td>
+			</tr>
+			<tr>
+				<td>Nhập chiều cao(m): </td>
+				<td><input type="text" name="textchieucao"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="tinhbmi" value="Tính chỉ số BMI" onclick="bmi()"></td>
+			</tr>
+		</table>		
+	</form>
+</body>
+</html>
