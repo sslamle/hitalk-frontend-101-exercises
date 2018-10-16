@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BMI</title>
+	<link href="https://fonts.googleapis.com/css?family=K2D|Montserrat" rel="stylesheet">
+	<style>
+		body{
+			background-color: #8EC5FC;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            font-family: 'Montserrat', sans-serif;
+			font-family: 'K2D', sans-serif;
+		}
+		.container{
+			margin: auto 30em;
+
+		}
+		button#button {
+		    font-family: 'Montserrat', sans-serif;
+		    font-family: 'K2D', sans-serif;
+		    float: right;
+		    padding: 7px 15px;
+		    background-color: #FAACA8;
+		    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+		    border: none;
+		    border-radius: 6px;
+		}
+
+		input[type="number"], input[type="text"] {
+    		padding: 8px 26px;
+    		border: none;
+    		border-radius: 5px;
+		}
+		fieldset {
+   			 border-radius: 16px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<fieldset>
+			<legend>Calculator BMI</legend>
+			<table>
+				<tr>
+					<td>Your weight(Kg):</td>
+					<td><input type="number" id="weight"></td>
+				</tr>
+
+				<tr>
+					<td>Your height(m):</td>
+					<td><input type="number" id="height"></td>
+				</tr>
+
+				<tr>
+					<td>Your BMI:</td>
+					<td><input type="text" id="bmi"></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><button id="button" >Computer BMI</button></td>
+				</tr>
+			</table>
+		</fieldset>
+	</div>
+	<script>
+		
+
+		button.addEventListener('click',function(){
+			var weight = document.getElementById('weight').value;
+			var height = document.getElementById('height').value;
+			var bmi = document.getElementById('bmi');
+			var button = document.getElementById('button');
+			
+			var com_bmi = weight/(height*height);
+			com_bmi=Math.floor(com_bmi*10)/10;
+			bmi.value=com_bmi;
+
+			if (bmi.value<=18.5) {bmi.value+=' (Underweight)';}
+			else if(18.5 <= bmi.value && bmi.value <= 25) {bmi.value+=' (Normalweight)';}
+			else{bmi.value+=' (Overweight)';}
+			bmi.style.color='red';
+		})
+	</script>
+</body>
+</html>
