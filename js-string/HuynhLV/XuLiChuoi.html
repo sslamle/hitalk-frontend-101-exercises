@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form name="form1">	
+		<table style="margin: 0 auto;">
+			<caption><h1>Xử lý với chuỗi</h1></caption>
+			<tr>
+				<td>Nhập chuỗi: </td>
+				<td><input type="text" name="chuoi" style="width: 100%;"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="" value="Xóa kí tự trống" onclick="xoaKiTuTrong()" style="width: 100%;"></td>
+				<td><input type="button" name="" value="Lấy tên người dùng" onclick="nameUser()" style="width: 100%;"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="" value="Đổi dạng kí tự" onclick="doiDangKiTu()" style="width: 100%;"></td>
+				<td><input type="button" onclick="_10kitu()" value="Cắt chuỗi" style="width: 100%;"></td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		function xoaKiTuTrong(){
+			var chuoi = document.form1.chuoi.value;
+			var kq = "";
+			for(var i = 0; i<chuoi.length; i++){
+				if(chuoi[i] !== " "){
+					kq += chuoi[i];
+				}
+			}
+			alert("Xóa kí tự trống: "+kq);
+		}
+		function nameUser(){
+			var chuoi = document.form1.chuoi.value;
+			chuoi = chuoi.trim();
+			if(chuoi === ""){
+				alert("Bạn hãy nhập tên của mình!");
+			}else{
+				var chuoichuanhoa="";
+				for(var i = 0; i<chuoi.length; i++){
+					var temp = 0;
+					temp = i;
+					if(chuoi[i] === " "){
+						while(chuoi[temp+1] === " ") temp++;
+						i = temp;
+					}
+					chuoichuanhoa += chuoi[i];
+				}
+				var index = 0;
+				for(var i = 0; i<chuoichuanhoa.length; i++){
+					if(chuoichuanhoa[i] === " "){
+						index = i;
+					}
+				}
+				alert("Tên người dùng: "+chuoichuanhoa.substr(index+1));
+			}
+		}
+		function doiDangKiTu(){
+			var chuoi = document.form1.chuoi.value;
+			var kq="";
+			for(var i = 0; i<chuoi.length; i++){
+				if(chuoi[i] >= 'A' && chuoi[i] <= 'Z'){
+					kq += chuoi[i].toLowerCase();
+				}else if(chuoi[i] >= 'a' && chuoi[i]<='z'){
+					kq += chuoi[i].toUpperCase();
+				}else{
+				}
+			}
+			alert("Đổi dạng kí tự: "+kq);
+		}
+
+		function _10kitu(){
+			var chuoi = document.form1.chuoi.value;
+			var kq = "";
+			if(chuoi.length <= 10){
+				kq = chuoi;
+			}else{
+				kq = chuoi.substring(0, 10) + "...";
+			}
+			alert("Chuỗi đã cắt: "+ kq);
+		}
+
+	</script>
+</body>
+</html>

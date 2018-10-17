@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form name="form1">
+		<table style="margin: 0 auto;">
+			<caption><h1>Chèn chuỗi</h1></caption>
+			<tr>
+				<td>Chuỗi chính: </td>
+				<td><input type="text" name="chuoichinh"></td>
+			</tr>
+			<tr>
+				<td>Chuỗi cần chèn: </td>
+				<td><input type="text" name="chuoichen"></td>
+			</tr>
+			<tr>
+				<td>Vị trí chèn:</td>
+				<td><input type="text" name="vitrichen"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="Kết quả" onclick="chenChuoi()"></td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		function chenChuoi(){
+			var chuoichinh = document.form1.chuoichinh.value;
+			var chuoichen = document.form1.chuoichen.value;
+			var vitrichen = document.form1.vitrichen.value;
+			var kq = chuoichinh.substr(0, vitrichen) + chuoichen + chuoichinh.substr(vitrichen);
+			alert(kq);
+		}
+	</script>
+</body>
+</html>
