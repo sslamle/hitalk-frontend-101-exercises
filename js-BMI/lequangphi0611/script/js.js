@@ -5,18 +5,18 @@ function BMI (weight, height) {
 
 function phanLoai (bmi) {
   if (bmi < 18.5) {
-    return 'Thiếu cân'
+    return 'Thiếu cân';
   } else if (bmi > 25) {
-    return 'Thừa cân'
+    return 'Thừa cân';
   } else {
-    return 'Cân đối'
+    return 'Cân đối';
   }
 }
 
-var show = document.getElementById('show')
-var showScreen = (message) => {      //   In ra màn hình
-  show.innerHTML = message
-}
+var show = document.getElementById('show');
+var showScreen = (message)=>{      //   In ra màn hình
+  show.innerHTML = message;
+};
 
 function getBMI () {
   var weight = document.getElementById('weight').value;
