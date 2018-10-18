@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BTVN</title>
+	<style type="text/css">
+		div{
+			padding-left: 50px;
+			width: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	<br>
+	<h2>Xóa ký tự rỗng trong chuỗi.</h2>
+	<p>Nhập vào 1 chuỗi:</p>
+	<input type="text" name="" id="input1">
+	<button id="button1">KQ</button>
+	<h3>Kết quả:</h3><span id="kq1">null</span>
+	</div>
+
+	<div>
+	<br>
+	<hr>
+	<h2>Lấy tên của người dùng</h2>
+	<p>Nhập họ và tên:</p>
+	<input type="text" name="" id="input2">
+	<button id="button2">KQ</button>
+	<h3>Kết quả:</h3><span id="kq2">null</span>
+	</div>
+
+	<div>
+	<br>
+	<hr>
+	<h2>Đổi định dạng chuỗi:</h2>
+	<p>Nhập vào 1 chuỗi:</p>
+	<input type="text" name="" id="input3">
+	<button id="button3">KQ</button>
+	<h3>Kết quả:</h3><span id="kq3">null</span>
+	</div>
+
+	<div>
+	<br>
+	<hr>
+	<h2>Chèn chuỗi:</h2>
+	<p>Nhập vào chuỗi chính:</p>
+	<input type="text" name="" id="input4">
+	<p>Nhập vào chuỗi chèn:</p>
+	<input type="text" name="" id="input4a">
+	<p>Nhập vào vị trí chèn:</p>
+	<input type="text" name="" id="input4b">
+	<button id="button4">KQ</button>
+	<h3>Kết quả:</h3><span id="kq4">null</span>
+	</div>
+
+	<div>
+	<br>
+	<hr>
+	<h2>Cắt Chuỗi</h2>
+	<p>Nhập vào 1 chuỗi:</p>
+	<input type="text" name="" id="input5">
+	<button id="button5">KQ</button>
+	<h3>Kết quả:</h3><span id="kq5">null</span>
+	</div>
+
+	<script type="text/javascript">
+		var input1 = document.getElementById('input1');
+		var button1 = document.getElementById('button1');
+		var kq1 = document.getElementById('kq1');
+
+		var input2 = document.getElementById('input2');
+		var button2 = document.getElementById('button2');
+		var kq2 = document.getElementById('kq2');
+
+		var input3 = document.getElementById('input3');
+		var button3 = document.getElementById('button3');
+		var kq3 = document.getElementById('kq3');
+
+		var input4 = document.getElementById('input4');
+		var input4a = document.getElementById('input4a');
+		var input4b = document.getElementById('input4b');
+		var button4 = document.getElementById('button4');
+		var kq4 = document.getElementById('kq4');
+
+		var input5 = document.getElementById('input5');
+		var button5 = document.getElementById('button5');
+		var kq5 = document.getElementById('kq5');
+
+		button1.addEventListener('click',function(){
+			var st1=input1.value;
+			var kq="";
+			for(var i=0;i<st1.length;i++){
+				if (st1[i]!=" ") {
+					kq+=st1[i];
+				}
+			}
+			kq1.innerHTML =kq;
+			
+		});
+
+		button2.addEventListener('click', function(){
+			if (!input2.value.trim()) {
+				alert("Lỗi! Mời bạn nhập lại tên.")
+			}else{
+			var st2=input2.value.trim();
+			var kq=st2.substring(st2.lastIndexOf(" "));
+			kq2.innerHTML=kq;
+			}		
+		});
+
+		button3.addEventListener('click',function(){
+			var st3=input3.value;
+			var kq = "";
+			for(var i =0;i<st3.length; i++){
+				if(st3[i]===st3[i].toUpperCase()){
+					kq+=st3[i].toLowerCase();
+				}else{
+					kq+=st3[i].toUpperCase();
+				}
+			}
+			kq3.innerHTML=kq;
+		});
+
+		button4.addEventListener('click',function(){
+			
+			var st4 = input4.value;
+			var num= Number(input4b.value);
+			var st4a=input4a.value;
+			
+			if (!num || num<=0 || num>st4.length) {
+				alert("Bạn nhập sai vị trí chèn, mời nhập lại!");
+			}else{
+				var kq = st4.substr(0,num-1) + input4a.value + st4.substring(num-1) ;
+				kq4.innerHTML=kq;	
+			}
+		});
+		button5.addEventListener('click',function(){
+			var st5 = input5.value;
+			var kq="";
+			if (st5.length>11) {
+				kq=(st5.substr(0,10) + "...");
+				
+			}else{
+				kq=st5;
+			}
+			kq5.innerHTML=kq;
+		});
+	</script>	
+</body>
+</html>
