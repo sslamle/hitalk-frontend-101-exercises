@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> </title>
+</head>
+<body>	
+
+			<form>
+				
+
+			<table>
+				
+				<tr>
+					<td align="right"> chuoi chuan</td>
+					<td> <input id='gia_tri' type="text" name=" chuoi chuan"> </td>
+					<td> <button id='submit' > Submit </button>  </td>
+
+				</tr> 
+				
+				<tr>
+					<td align="right"> xoa ki tu trong </td>
+					<td> <input id='gia_tri1' type="text" name=" chuoi lien nhau"> </td>
+					<td> <button id='submit1' > Submit </button>  </td>
+
+				</tr> 
+
+				<tr>
+					<td align="right"> cat chuoi  </td>
+					<td> <input id='gia_tri2' type="text" name=" cat chuoi"> </td>
+					<td> <button id='submit2' > Submit </button>  </td>
+
+				</tr> 
+			</table>
+			</form>
+ 	
+
+			
+ 			<script type="text/javascript">
+ 			
+ 			var input= 	document.getElementById('gia_tri') ;
+ 			var button= document.getElementById('submit') ;
+
+ 			button.addEventListener('click',function tien2(argument) {
+ 				var string = input.value ;
+ 					
+ 					var result=string.split(' ') ;
+ 					var sum="" ;
+ 	
+ 					var new_numbers = [];
+					for (var i = 0; i < result.length; i++){
+    				if (result[i] !==""){
+       					 new_numbers.push(result[i]);
+   						 }
+				}			
+					for (var i = 0; i < new_numbers.length; i++) {
+						sum = sum+ (" "+new_numbers[i]) ;
+					}
+
+					alert(sum) ;
+
+ 			}) ;
+
+ 			var input1=  document.getElementById('gia_tri1') ;
+ 			var button1= document.getElementById('submit1') ;
+
+ 			button1.addEventListener('click',function tien3(argument) {
+ 				var string = input1.value ;
+ 					
+ 					var result=string.split(' ') ;
+ 					var sum="" ;
+ 	
+ 					var new_numbers = [];
+					for (var i = 0; i < result.length; i++){
+    				if (result[i] !==""){
+       					 new_numbers.push(result[i]);
+   						 }
+				}			
+					for (var i = 0; i < new_numbers.length; i++) {
+						sum = sum + new_numbers[i] ;
+					}
+
+					alert(sum) ;
+
+ 			}) ;
+ 			
+
+ 			var input2=  document.getElementById('gia_tri2') ;
+ 			var button2= document.getElementById('submit2') ;
+
+ 			button2.addEventListener('click',function tien4(argument) {
+ 					var string = input2.value ;
+ 					
+ 					
+ 					if(string.length <10)
+ 					{
+ 						alert(string) ;
+ 					}
+ 	
+ 					else 
+ 					{
+ 						alert(string.substr(0,10)+"........") ;
+ 					}
+
+ 			}) ;
+ 			
+ 			
+ 			</script>
+</body>
+</html>
