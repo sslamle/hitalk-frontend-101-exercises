@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		#box{
+			background-color: blue;
+			width: 200px;
+			height: 200px;
+			margin:50px 0 0 50px;
+			position: relative;
+			float: left;
+			border: 1px solid;
+		}
+		#fish{
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			background-color: yellow;
+			top:0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+		}
+		#control{
+			width: 100px;
+			height: 200px;
+			float: left;
+			margin: 50px;
+			position: relative;
+		}
+		#control button{
+			position: absolute;
+			border-radius: 20%;
+		}
+		#up{
+			left: 30px;
+		}
+		#down{
+			top: 100px;
+			left: 30px;
+		}
+		#left{
+			top: 50px;
+		}
+		#right{
+			top: 50px;
+			left: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="fish"></div>
+	</div>
+	<div id="control">
+
+		<button id="up"><i class="far fa-arrow-alt-circle-up fa-3x"></i></button>
+		<button id="down"><i class="far fa-arrow-alt-circle-down fa-3x"></i></button>
+		<button id="left"><i class="far fa-arrow-alt-circle-left fa-3x"></i></button>
+		<button id="right"><i class="far fa-arrow-alt-circle-right fa-3x"></i></button>
+	</div>
+	<script type="text/javascript">
+		var up = document.getElementById('up');
+		var down = document.getElementById('down');
+		var left = document.getElementById('left');
+		var right = document.getElementById('right');
+		var fish = document.getElementById('fish');
+		
+		var topp=0;
+		var leftt=0;
+		//console.log(topp);
+		up.addEventListener('click',function(){				
+				if (topp>=10 && topp<=190) {
+					topp-=10;
+					fish.style.top=String(topp)+'px';
+				}else{
+					alert("bạn đã đụng vào tường!");
+				}				
+				console.log(topp);			
+		});
+		down.addEventListener('click',function(){
+			if (topp>=0 && topp<=180) {
+				topp+=10;
+				fish.style.top=String(topp)+'px';
+			}else{
+				alert("bạn đã đụng vào tường!");
+			}
+			
+		});
+		left.addEventListener('click',function(){
+			if(leftt>=10 && leftt<=190){
+				leftt-=10;
+				fish.style.left=String(leftt)+'px';
+			}else{
+				alert("bạn đã đụng vào tường!");
+			}
+		});
+		right.addEventListener('click',function(){
+			if(leftt>=0 && leftt<=180){
+				leftt+=10;
+				fish.style.left=String(leftt)+'px';
+			}else{
+				alert("bạn đã đụng vào tường!");
+			}
+		});
+	</script>
+</body>
+</html>
