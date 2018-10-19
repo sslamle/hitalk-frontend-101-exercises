@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Javascript</title>
+	<style>
+		* {
+			box-sizing: border-box;
+
+		}
+
+		body {
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.box {
+			background: blue;
+			width: 200px;
+			height: 200px;
+			position: relative;
+		}
+
+		#fish {
+			width: 10px;
+			height: 10px;
+			background: yellow;
+			position: absolute;
+
+			top: 10px;
+			left: 20px;
+		}
+
+		#button {
+			margin-top: 20px;
+		}
+
+		p {
+			font-size: 20px;
+			font-style: italic;
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="box">
+		<div id="fish"></div>
+	</div>
+
+	<div id="button">
+		<button id="up">Up</button>
+		<button id="down">Down</button>
+		<button id="left">Left</button>
+		<button id="right">Right</button>
+	</div>
+	<p id="err">
+		<!--Hiển thị khi box gặp đường biên--->
+	</p>
+	<script>
+		var fish = document.getElementById('fish');
+
+		var y = fish.offsetTop;
+		var x = fish.offsetLeft;
+
+		var box = document.getElementsByClassName('box')[0];
+
+		var boxW = box.offsetWidth; //Chiều rộng box
+		var boxH = box.offsetHeight; //Chiều cao box
+
+		var over = document.getElementById('err');
+
+		var checkTop = () => {
+			if (y === 0) {
+				return false;
+			}
+			return true;
+		}
+
+		var checkBottom = () => {
+			if (y + 5 + (fish.offsetHeight / 2) >= boxH) {
+				return false;
+			}
+			return true;
+		}
+
+		var checkLeft = () => {
+			if (x === 0) {
+				return false;
+			}
+			return true;
+		}
+
+		var checkRight = () => {
+			if (x + 5 + (fish.offsetWidth / 2) >= boxW) {
+				return false;
+			}
+			return true;
+		}
+
+		var check = (callBack) => {
+			over.innerText = '';
+			if (!callBack) {
+				setTimeout(() => {
+					over.innerHTML = "Bạn đã đụng tường";
+				}, 500);
+			}
+			return callBack;
+		}
+
+		function push(number) {
+			fish.style.top = `${number}px`;
+		}
+
+		function push02(number) {
+			fish.style.left = `${number}px`;
+		}
+
+
+
+		document.getElementById('up').addEventListener('click', () => {
+			if (check(checkTop())) {
+				y -= 5;
+				push(y);
+			}
+		});
+
+		document.getElementById('down').addEventListener('click', () => {
+			if (check(checkBottom())) {
+				y += 5;
+				push(y);
+			}
+		});
+
+		document.getElementById('left').addEventListener('click', () => {
+			if (check(checkLeft())) {
+				x -= 5;
+				push02(x);
+			}
+		});
+
+		document.getElementById('right').addEventListener('click', () => {
+			if (check(checkRight())) {
+				x += 5;
+				push02(x);
+			}
+		})
+	</script>
+</body>
+
+</html>
