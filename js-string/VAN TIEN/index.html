@@ -6,36 +6,60 @@
 <body>	
 
 			<form>
-				
-
 			<table>
 				
 				<tr>
 					<td align="right"> chuoi chuan</td>
-					<td> <input id='gia_tri' type="text" name=" chuoi chuan"> </td>
+					<td> <input id='gia_tri' type="text" </td>
 					<td> <button id='submit' > Submit </button>  </td>
 
 				</tr> 
 				
 				<tr>
 					<td align="right"> xoa ki tu trong </td>
-					<td> <input id='gia_tri1' type="text" name=" chuoi lien nhau"> </td>
+					<td> <input id='gia_tri1' type="text" /> </td>
 					<td> <button id='submit1' > Submit </button>  </td>
 
 				</tr> 
 
 				<tr>
 					<td align="right"> cat chuoi  </td>
-					<td> <input id='gia_tri2' type="text" name=" cat chuoi"> </td>
+					<td> <input id='gia_tri2' type="text" /> </td>
 					<td> <button id='submit2' > Submit </button>  </td>
 
 				</tr> 
+
+				<tr>
+					<td align="right"> Ten  </td>
+					<td><input id='value' type="text" /></td>
+					<td> <button id='request'> Submit</button> </td>
+				</tr>
+
+				<tr>
+					<td align="right"> doi dang</td>
+					<td><input id='value1' type="text" /> </td>
+					<td> <button id='request1'> Submit</button> </td>
+
+				</tr>
+					
+				<tr> 
+					<td align="right"> Chen chuoi </td>
+					<tr>
+						<td align="right" > <input id='value2' type="text" placeholder=" chuỗi chính" /> </td>
+						<td> <input id="value3" type="text" placeholder=" chuỗi chèn"/></td>
+						<td> <input id="value4" type="text" placeholder=" vị trí chèn"/></td>
+						<td> <button id='request2'> Submit </button></td>
+					</tr>
+					
+				</tr>
+
 			</table>
 			</form>
  	
 
 			
  			<script type="text/javascript">
+ 				//chuỗi chuẩn 
  			
  			var input= 	document.getElementById('gia_tri') ;
  			var button= document.getElementById('submit') ;
@@ -53,12 +77,13 @@
    						 }
 				}			
 					for (var i = 0; i < new_numbers.length; i++) {
-						sum = sum+ (" "+new_numbers[i]) ;
+						sum = sum+ (new_numbers[i]+" ") ;
 					}
 
 					alert(sum) ;
 
  			}) ;
+ 			//xóa kí tự trống
 
  			var input1=  document.getElementById('gia_tri1') ;
  			var button1= document.getElementById('submit1') ;
@@ -80,10 +105,11 @@
 					}
 
 					alert(sum) ;
+					console.log(sum) ;
 
  			}) ;
  			
-
+ 				// in chuỗi rút gọn
  			var input2=  document.getElementById('gia_tri2') ;
  			var button2= document.getElementById('submit2') ;
 
@@ -103,7 +129,107 @@
 
  			}) ;
  			
+ 			// in tên
+ 			var inputt, buttonn ;
+ 			inputt= document.getElementById('value') ;
+ 			buttonn = document.getElementById('request') ;
+
+ 			buttonn.addEventListener('click',function tien6(argument) {
+ 					var string = inputt.value ;
+ 					
+ 					string=string.trim() ;
+ 					var result12 =string.split(' ') ;
+ 					var name= '' ;
+ 					name = result12[result12.length-1] ;
+ 					
+ 					alert(name) ;
+ 					console.log(name) ;
+
+ 					
+ 			}) ;
+
+ 			var inputt, buttonn ;
+ 			inputt= document.getElementById('value') ;
+ 			buttonn = document.getElementById('request') ;
+
+ 			buttonn.addEventListener('click',function tien6(argument) {
+ 					var string = inputt.value ;
+ 					
+ 					string=string.trim() ;
+ 					var result12 =string.split(' ') ;
+ 					var name= '' ;
+ 					name = result12[result12.length-1] ;
+ 					
+ 					alert(name) ;
+ 					console.log(name) ;
+
+ 					
+ 			}) ;
  			
+ 			var  change, submit ;
+ 			change= document.getElementById('value1') ;
+ 			submit = document.getElementById('request1') ;
+
+ 			submit.addEventListener('click',function tien6(argument) {
+ 					var string = change.value ;
+ 					var sum='' ;
+ 					
+ 					string=string.trim() ;
+ 					var c ='' ;
+ 					
+ 					for (var i = 0; i < string.length; i++) {
+ 						
+ 						c=string[i] ;
+ 						if(c==c.toUpperCase() )
+ 						{
+ 							sum+= c.toLowerCase() ;
+ 						}
+
+ 						if(c==c.toLowerCase())
+ 						{
+ 							sum+=c.toUpperCase() ;
+ 						}
+ 						
+
+ 					}
+ 					alert(sum) ;
+ 			}) ;
+
+
+ 			// chèn chuỗi 
+
+ 			var insert1, insert2,insert3 ,submit13 ;
+
+ 				insert1=document.getElementById('value2') ;
+ 				insert2= document.getElementById('value3') ;
+ 				insert3= document.getElementById('value4') ;
+ 				submit13= document.getElementById('request2') ;
+
+
+ 				submit13.addEventListener('click',function tien7()
+ 				{
+ 					 var string=insert1.value ;
+ 					 var string2 = insert2.value ;
+ 					 var locate = Number(insert3.value)-1 ;
+
+ 					 var result=string.split(' ') ;
+ 					 var sum='' ;
+ 					 
+ 					for (var i = 0; i <result.length; i++) {
+ 						sum+= (result[i] +' ');
+
+ 						if(i=== locate ) 
+ 						{
+ 							sum+=string2+' ' ;
+
+ 						}
+ 						
+ 					}
+
+ 					alert(sum) ;
+ 				});
+
+
  			</script>
 </body>
 </html>
