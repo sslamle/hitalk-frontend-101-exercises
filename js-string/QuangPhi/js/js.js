@@ -15,9 +15,15 @@ var checkNull = (text) => {
     if (text) {
         return true;
     }
-    inputText.innerHTML = "Vui lòng nhập dữ liệu để tiếp tục";
-    inputText.style.color = "red";
+    err("Vui lòng nhập dữ liệu để tiếp tục");
     return false;
+}
+
+var err = (message) =>{
+    setTimeout(() => {
+      inputText.innerHTML = message;
+      inputText.style.color = "red";
+    }, 200);
 }
 
 //Bài 1 xóa khoảng trắng trong chuỗi
@@ -74,7 +80,7 @@ var bai3 = () => {
         for(let i = 0; i < text.length; i++){
             var x = text[i].toUpperCase();
             if(text[i] == x){
-                arrayText[i] = text[i].toLowerCase(); 
+                arrayText[i] = text[i].toLowerCase();
             }else{
                 arrayText[i] = text[i].toUpperCase();
             }
@@ -93,12 +99,10 @@ var bai4 = () => {
     reset();
     if (checkNull(text) && checkNull(text02) && checkNull(index)) {
         if (isNaN(index)) {
-            inputText.innerHTML = "Vui lòng điền số cho vị trí chèn !";
-            inputText.style.color = "red";
+            err("Vui lòng điền số cho vị trí chèn !");
         } else {
             if (index < 0) {
-                inputText.innerHTML = " Vị trí mảng k thể là số âm !";
-                inputText.style.color = "red";
+                err(" Vị trí mảng k thể là số âm !");
                 return;
             }
             if (index >= text.length) {
