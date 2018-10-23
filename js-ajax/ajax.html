@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style>
+		.person {
+			border-bottom: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="people"></div>
+
+	<button id="update">Update</button>
+
+	<script>
+		var peopleElm = document.getElementById('people');
+
+		document.getElementById('update').addEventListener('click', function() {
+				fetch('data.json')
+				.then(function(response) {
+					return response.json();
+				})
+				.then(function(data) {
+					var result = '';
+					for (var i = 0; i < data.length; i++) {
+						var person  = data[i];
+						result += '<div class="person">'
+								+	 '<p><strong>Name: ' + person.name + '</strong></p>'
+								+	 '<p>Age: ' + person.age + '</p>'
+								+ '</div>';
+					}
+
+					peopleElm.innerHTML = result;
+				})
+		})
+		
+	</script>
+</body>
+</html>

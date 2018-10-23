@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style>
+		.person {
+			border-bottom: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<input id="search-input">
+	<button id="search-button">Search</button>
+
+
+	<script>
+
+		// Example of fetch
+		fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCsxDHNnJ0-PKbeYk3T_LqCDnLtnPxLeLY&q=dung quen ten anh')
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(data) {
+			console.log(data);
+		})
+
+		
+	</script>
+</body>
+</html>

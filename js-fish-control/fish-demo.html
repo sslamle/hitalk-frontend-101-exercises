@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style>
+
+	* {
+		box-sizing: border-box;
+		
+	}
+
+	.box {
+		background: blue;
+		width: 200px;
+		height: 200px;
+		position: relative;
+	}
+
+	#fish {
+		width: 10px;
+		height: 10px;
+		background: yellow;
+		position: absolute;
+
+		top: 0px;
+		left: 0px;
+	}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<div id="fish"></div>
+	</div>
+
+	<button id="up">Up</button>
+	<button id="down">Down</button>
+	<button id="left">Left</button>
+	<button id="right">Right</button>
+
+
+	<script>
+
+		var fish = document.getElementById('fish');
+		var oFish = {
+			top: 0,
+			left: 0
+		};
+
+		var step = 10;
+
+		function update(newTop, newLeft) {
+			oFish.top = newTop;
+			oFish.left = newLeft;
+
+			fish.style.top = oFish.top + 'px';
+			fish.style.left = oFish.left + 'px';
+		}
+
+		document.getElementById('up').addEventListener('click',
+			function() {
+				update(oFish.top - step, oFish.left);
+			}
+		)
+
+		document.getElementById('down').addEventListener('click',
+			function() {
+				update(oFish.top + step, oFish.left);
+			}
+		)
+
+		document.getElementById('left').addEventListener('click',
+			function() {
+				update(oFish.top, oFish.left - step);
+			}
+		)
+
+		document.getElementById('right').addEventListener('click',
+			function() {
+				update(oFish.top, oFish.left + step);
+			}
+		)
+	</script>
+</body>
+</html>
