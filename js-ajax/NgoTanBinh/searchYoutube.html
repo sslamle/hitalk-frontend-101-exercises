@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style>
+		.person {
+			border-bottom: 1px solid #ccc;
+		}
+		*{
+			box-sizing: border-box;
+		}
+
+		#content{
+			width: 80%;
+			margin: 100px 10%;
+		}
+		.item{
+			margin: 20px 0;
+			
+			float: left;
+		}
+		.imgg{float: left;border-bottom: 1px solid #ccc;}
+		.titlee{float: left;clear: right;padding-left: 20px;text-decoration: none;}
+		.descriptionn{float: left;width: 60%;padding: 20px;margin: 0;}
+		.channell{float: left;width: 60%;padding-left: 20px;	margin: 0;}
+		input{
+			width: 130px;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+			background-color: white;
+			background-image: url('searchicon.png');
+			background-position: 10px 10px; 
+			background-repeat: no-repeat;
+			padding: 12px 20px 12px 40px;
+			-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
+			}
+
+		input:focus{
+			width: 250px;
+		}
+	</style>
+		
+</head>
+<body>
+	<div style="margin: 0 auto;width:30% ">
+		<input id="searchInput"  placeholder="Search.." >
+		<button id="searchButton">Search</button>
+	</div>
+	
+	<div id="content">
+		<a href=""><img src=""></a>
+	</div>
+
+
+
+	<script>
+
+		var searchContent='';
+		var searchInput=document.getElementById('searchInput');
+		var content=document.getElementById('content');
+		
+		document.getElementById('searchButton').addEventListener('click',function(){
+			//searchContent=searchInput.value;
+			searchContent='la lung';
+			// Example of fetch
+			fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCsxDHNnJ0-PKbeYk3T_LqCDnLtnPxLeLY&q='+searchContent)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(data) {
+				var result="";
+				for(var i=0;i<data.items.length;i++){
+					//result+='eememem';
+					var kid=data.items[i];
+					var _urlImg=data.items[i].snippet.thumbnails.medium.url;
+					var _description= data.items[i].snippet.description;
+					var _title=data.items[i].snippet.title;
+					var _idVideo=data.items[i].id.videoId;
+					var _channel=data.items[i].snippet.channelTitle;
+					var link ='https://www.youtube.com/watch?v='+_idVideo;
+					result+='<div class="item">'
+								+'<a class="imgg" href="'+link+'"><img src="'+_urlImg+'"></a>'
+								+ '<a class="titlee" href="'+link+'"><h3>'+ _title +'</h3></a>'	
+								+'<h4 class="channell">'+ _channel +'</h4>'						
+								+'<p class="descriptionn">'+_description+'</p>'
+							+'</div>';
+				}
+				content.innerHTML=result;
+			})
+		});		
+	</script>
+</body>
+</html>
