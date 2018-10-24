@@ -63,8 +63,8 @@
 		var content=document.getElementById('content');
 		
 		document.getElementById('searchButton').addEventListener('click',function(){
-			//searchContent=searchInput.value;
-			searchContent='la lung';
+			searchContent=searchInput.value;
+			
 			// Example of fetch
 			fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCsxDHNnJ0-PKbeYk3T_LqCDnLtnPxLeLY&q='+searchContent)
 			.then(function(response) {
