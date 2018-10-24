@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style>
+		.person {
+			border-bottom: 1px solid #ccc;
+		}
+		#img{
+			width: 247px; height: 137px;
+		}
+		#title{
+			width: 600px; height: 138px; padding-left: 15px;
+		}
+		#div{
+		    display: flex;
+		    padding: 10px;
+		}
+		#link{
+		    display: flex;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div style="text-align: center;">
+			<input id="search-input">
+			<button id="search-button">Search</button><br>
+		</div>
+		<div id="list"></div>
+	</div>
+	<script>
+		var list = document.getElementById('list');
+		document.getElementById('search-button').addEventListener('click', function(){
+			var input = document.getElementById('search-input').value;
+			// Example of fetch
+			fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCsxDHNnJ0-PKbeYk3T_LqCDnLtnPxLeLY&q='+input)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(data) {
+				var result = '';
+				for(var i = 0; i<data.items.length; i++){
+					var img = data.items[i].snippet.thumbnails.high.url;
+					var title = data.items[i].snippet.title;
+					var description = data.items[i].snippet.description;
+					var channelTitle = data.items[i].snippet.channelTitle;
+					var id = data.items[i].id.videoId;
+					var link = "https://youtu.be/"+id;
+					result += '<div id="div"><a id="link" href="'+link+'"><img id="img" src="'+img+'">'+'<div id="title"><b>'+title+'</b><br><br><span>'+channelTitle+'</span><br><br>'+'<span>'+description+'</span></div></a></div>'
+				}
+				list.innerHTML = result;
+			})
+		})
+	</script>
+</body>
+</html>
